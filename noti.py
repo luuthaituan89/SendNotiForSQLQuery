@@ -89,7 +89,7 @@ def send_table_to_google_chat(result = None, headers= None):
         for _, row in result.iterrows():
             table.add_row(row.tolist())
 
-        message = {"text": f"UK FIH Check Order:\n```\n{table.get_string()}\n```"}
+        message = {"text": f"Data in the table:\n```\n{table.get_string()}\n```"}
         response = requests.post(WEBHOOK_URL, json=message)
         if response.status_code == 200:
             print("Data sent to Google Chat successfully.")
